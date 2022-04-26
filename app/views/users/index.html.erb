@@ -4,13 +4,23 @@
 
 <div id="users">
   <% @users.each do |user| %>
-    <div class="card text-dark bg-light mb-3" id="<%= dom_id user %>" style="max-width: 18rem;">
-      <div class="card-body">
-        <h5 class="card-title"><%= link_to user.name, user %></h5>
-        <p class="card-text"><p><%= user.email %></p></p>
+  
+      <div class="card my-3" id="<%= dom_id user %>">
+        <div class="row no-gutters">
+          <div class="col-auto">
+            <img src="https://i.pravatar.cc/150" class="img-fluid" alt="">
+          </div>
+          <div class="col">
+              <div class="card-block px-2">
+                <h6 class="display-5 fw-bold pt-3"><%= user.name %></h6>
+                <p class="col-md-8 fs-4"><%= user.email %></p>
+              </div>
+          </div>
       </div>
-    </div>
+  </div>
+    
   <% end %>
 </div>
 
-<%= link_to "New user", new_user_path %>
+
+<%= button_to "New user", signup_path, method: :get, class: "btn btn-primary mt-4" %>
